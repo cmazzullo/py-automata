@@ -83,8 +83,10 @@ if __name__ == '__main__':
     "Run a whole little simulation with all the rules"
     generations = 100
     world_size = 100
-    all_rules = [make_rule('{:06b}'.format(i)) for i in range(2**6)]
-    for rule in all_rules:
+    all_rules = ['{:06b}'.format(i) for i in range(2**6)]
+    for i, rule_string in enumerate(all_rules):
+        print(f'Rule {i}: {rule_string}')
+        rule = make_rule(rule_string)
         world = random_world(world_size)
         for g in range(generations):
             print(stringify(world))
